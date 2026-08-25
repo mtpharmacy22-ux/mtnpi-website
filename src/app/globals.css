@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #123b31;
+  color: #faf6ec;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+.eyebrow {
+  @apply font-mono text-xs uppercase tracking-[0.2em] text-sage-600;
+}
+
+.section-heading {
+  @apply font-display text-3xl font-semibold tracking-tight text-forest-800 sm:text-4xl;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-forest-700 px-6 py-3 text-sm font-semibold text-cream-100 shadow-card transition-all duration-200 hover:bg-forest-800 hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-forest-700/30 bg-transparent px-6 py-3 text-sm font-semibold text-forest-800 transition-all duration-200 hover:border-forest-700 hover:bg-forest-700/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 active:scale-[0.98];
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-6 py-3 text-sm font-semibold text-forest-900 shadow-card transition-all duration-200 hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-700 active:scale-[0.98];
+}
+
+.card-surface {
+  @apply rounded-sm border border-forest-700/10 bg-cream-50 shadow-card;
+}
+
+/* Signature vitals divider used to mark transitions between key sections */
+.vitals-divider {
+  height: 28px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: 140px 24px;
+  background-position: center;
+  opacity: 0.9;
+}
