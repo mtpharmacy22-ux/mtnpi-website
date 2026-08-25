@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckCircle2, Send } from "lucide-react";
-import { courses } from "@/data/site-content";
+import { courses, contact } from "@/data/site-content";
 
 type FormState = {
   name: string;
@@ -56,8 +56,22 @@ export function EnquiryForm() {
     const validationErrors = validate(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
-      // NOTE: This form does not send data anywhere yet. Wire it up to an
-      // API route, email service, or CRM before going live.
+      // Build a pre-filled WhatsApp message from the enquiry and open it in
+      // a new tab so the enquiry lands directly on the institute's WhatsApp.
+      const lines = [
+        "New admission enquiry from the website:",
+        `Name: ${values.name}`,
+        `Phone: ${values.phone}`,
+        `Email: ${values.email}`,
+        `Course: ${values.course}`,
+      ];
+      if (values.message.trim()) {
+        lines.push(`Message: ${values.message.trim()}`);
+      }
+      const waMessage = encodeURIComponent(lines.join("\n"));
+      const waNumber = contact.phones[0];
+      window.open(`https://wa.me/91${waNumber}?text=${waMessage}`, "_blank", "noopener,noreferrer");
+
       setSubmitted(true);
       setValues(initialState);
     }
@@ -84,7 +98,8 @@ export function EnquiryForm() {
                   Thank you — your enquiry has been recorded.
                 </p>
                 <p className="mt-1 text-sm text-forest-700/65">
-                  Our admissions team will reach out to you shortly.
+                  We&rsquo;ve opened WhatsApp with your details pre-filled — just hit send and our
+                  admissions team will reach out to you shortly.
                 </p>
               </div>
             </div>
@@ -170,9 +185,12 @@ export function EnquiryForm() {
               </div>
 
               <button type="submit" className="btn-primary mt-6 w-full sm:w-auto">
-                Submit Enquiry
+                Submit Enquiry via WhatsApp
                 <Send size={16} />
               </button>
+              <p className="mt-2.5 text-xs text-forest-700/55">
+                This opens WhatsApp with your details filled in — just tap send.
+              </p>
             </form>
           )}
         </Reveal>

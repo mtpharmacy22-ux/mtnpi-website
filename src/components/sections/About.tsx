@@ -3,7 +3,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ArrowRight } from "lucide-react";
-import { asset } from "@/lib/asset";
 
 export function About() {
   return (
@@ -11,10 +10,10 @@ export function About() {
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
           <ImageSlot
+            src="/images/campus/about-institute.jpg"
             alt="Students and faculty at Mother Teresa Nursing & Paramedical Institute"
             label="Campus / Classroom Photo"
             path="/public/images/campus/about-institute.jpg"
-            src={asset("/images/campus/about-institute.jpg")}
             aspect="aspect-[4/3]"
           />
         </Reveal>

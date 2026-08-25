@@ -4,7 +4,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { Quote } from "lucide-react";
 import { directorMessage } from "@/data/site-content";
-import { asset } from "@/lib/asset";
 
 export function DirectorMessage() {
   return (
@@ -12,10 +11,10 @@ export function DirectorMessage() {
       <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
         <Reveal className="relative mx-auto w-full max-w-sm overflow-hidden rounded-sm border border-cream-100/15 shadow-lift lg:mx-0">
           <ImageSlot
+            src="/images/director/dr-ib-khan.jpg"
             alt="Dr. I. B. Khan, Director, Mother Teresa Nursing & Paramedical Institute"
             label="Director Photograph"
             path="/public/images/director/dr-ib-khan.jpg"
-            src={asset("/images/director/dr-ib-khan.jpg")}
             aspect="aspect-[4/5]"
           />
         </Reveal>

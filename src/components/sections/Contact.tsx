@@ -67,15 +67,26 @@ export function Contact() {
           </a>
         </div>
 
-        {/* Google Maps style location area */}
-        <Reveal delay={0.15} className="mt-12 overflow-hidden rounded-sm border border-cream-100/12">
+        {/* Google Maps embed */}
+        <Reveal delay={0.15} className="mt-12 overflow-hidden rounded-sm border border-cream-100/12 bg-cream-50">
           <iframe
             title="Mother Teresa Nursing & Paramedical Institute campus location"
             src={`https://www.google.com/maps?q=${encodeURIComponent(contact.campus)}&output=embed`}
-            className="h-72 w-full grayscale invert-[0.92] sm:h-96"
+            className="h-72 w-full sm:h-96"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
+          <div className="flex justify-end bg-cream-50 px-4 py-2.5">
+            <a
+              href={`https://www.google.com/maps/search/${encodeURIComponent(contact.campus)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-forest-700 hover:text-forest-800"
+            >
+              <MapPin size={13} />
+              Open in Google Maps
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -4,7 +4,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { courses } from "@/data/site-content";
-import { asset } from "@/lib/asset";
 
 export function Courses() {
   return (
@@ -25,10 +24,10 @@ export function Courses() {
               <div className="card-surface grid overflow-hidden md:grid-cols-[0.9fr_1.1fr]">
                 <div className="relative">
                   <ImageSlot
+                    src="/images/labs/bsc-nursing-course.jpg"
                     alt={`${course.name} students in a lab session`}
                     label="Course Image"
                     path="/public/images/labs/bsc-nursing-course.jpg"
-                    src={asset("/images/labs/bsc-nursing-course.jpg")}
                     aspect="aspect-[4/3] md:aspect-auto md:h-full"
                   />
                 </div>

@@ -5,7 +5,6 @@ import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import { library } from "@/data/site-content";
-import { asset } from "@/lib/asset";
 
 export function Library() {
   return (
@@ -13,10 +12,10 @@ export function Library() {
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card lg:order-2">
           <ImageSlot
+            src="/images/library/library-reading-area.jpg"
             alt="Students using the institute library"
             label="Library Photograph"
             path="/public/images/library/library-reading-area.jpg"
-            src={asset("/images/library/library-reading-area.jpg")}
             aspect="aspect-[4/3]"
           />
         </Reveal>

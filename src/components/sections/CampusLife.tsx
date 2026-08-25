@@ -4,7 +4,6 @@ import { Reveal, RevealGroup, revealItem } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { campusLifeImages } from "@/data/site-content";
-import { asset } from "@/lib/asset";
 
 export function CampusLife() {
   return (
@@ -20,29 +19,26 @@ export function CampusLife() {
         </Reveal>
 
         <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-3">
-          {campusLifeImages.map((item) => {
-            const slug = item.caption.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-            return (
-              <motion.div
-                key={item.caption}
-                variants={revealItem}
-                whileHover={{ y: -4 }}
-                className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card"
-              >
-                <ImageSlot
-                  alt={item.caption}
-                  label={item.category}
-                  path={`/public/images/students/${slug}.jpg`}
-                  src={asset(`/images/students/${slug}.jpg`)}
-                  aspect="aspect-[4/5]"
-                />
-                <div className="bg-cream-50 p-4">
-                  <p className="font-display text-sm font-semibold text-forest-800">{item.caption}</p>
-                  <p className="mt-0.5 text-xs text-forest-700/50">{item.category}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {campusLifeImages.map((item) => (
+            <motion.div
+              key={item.caption}
+              variants={revealItem}
+              whileHover={{ y: -4 }}
+              className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card"
+            >
+              <ImageSlot
+                src={`/images/students/${item.caption.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.jpg`}
+                alt={item.caption}
+                label={item.category}
+                path={`/public/images/students/${item.caption.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.jpg`}
+                aspect="aspect-[4/3]"
+              />
+              <div className="bg-cream-50 p-4">
+                <p className="font-display text-sm font-semibold text-forest-800">{item.caption}</p>
+                <p className="mt-0.5 text-xs text-forest-700/50">{item.category}</p>
+              </div>
+            </motion.div>
+          ))}
         </RevealGroup>
       </div>
     </section>

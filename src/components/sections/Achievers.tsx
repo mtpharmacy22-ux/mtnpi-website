@@ -26,9 +26,13 @@ export function Achievers() {
               whileHover={{ y: -3 }}
               className="flex items-start gap-3 rounded-sm border border-cream-100/12 bg-cream-100/[0.04] p-5"
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-500/15 text-gold-400">
+              <motion.span
+                whileHover={{ rotate: -12, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-500/15 text-gold-400"
+              >
                 <Award size={16} />
-              </span>
+              </motion.span>
               <div>
                 <p className="font-display text-sm font-semibold text-cream-100">{person.name}</p>
                 <p className="mt-1 text-xs leading-relaxed text-cream-100/60">{person.note}</p>

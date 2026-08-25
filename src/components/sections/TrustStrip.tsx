@@ -17,9 +17,13 @@ export function TrustStrip() {
               whileHover={{ y: -4 }}
               className="card-surface flex flex-col items-start gap-3 p-5 transition-shadow hover:shadow-lift"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-700/8 text-forest-700">
+              <motion.span
+                whileHover={{ scale: 1.12, rotate: 6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-700/8 text-forest-700"
+              >
                 <Icon name={item.icon as IconName} size={18} strokeWidth={1.75} />
-              </span>
+              </motion.span>
               <p className="font-display text-sm font-semibold leading-snug text-forest-800">
                 {item.title}
               </p>

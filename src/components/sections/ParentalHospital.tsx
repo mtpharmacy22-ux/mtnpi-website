@@ -5,7 +5,6 @@ import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { GraduationCap, Stethoscope, Briefcase, ArrowRight } from "lucide-react";
 import { parentalHospital } from "@/data/site-content";
-import { asset } from "@/lib/asset";
 
 const journey = [
   { label: "Education", icon: GraduationCap },
@@ -51,31 +50,31 @@ export function ParentalHospital() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="grid grid-cols-2 gap-3">
-            <div className="col-span-2 overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
+          <Reveal delay={0.1} className="grid grid-cols-3 gap-3">
+            <div className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
               <ImageSlot
+                src="/images/hospital/health-line-exterior.jpg"
                 alt="Health Line Hospital building, Adarsh Nagar, Jaipur"
                 label="Hospital Exterior Photo"
                 path="/public/images/hospital/health-line-exterior.jpg"
-                src={asset("/images/hospital/health-line-exterior.jpg")}
-                aspect="aspect-[16/9]"
-              />
-            </div>
-            <div className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
-              <ImageSlot
-                alt="Health Line Hospital signage"
-                label="Hospital Signage"
-                path="/public/images/hospital/health-line-signage.jpg"
-                src={asset("/images/hospital/health-line-signage.jpg")}
                 aspect="aspect-square"
               />
             </div>
             <div className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
               <ImageSlot
+                src="/images/hospital/health-line-signage.jpg"
+                alt="Health Line Hospital signage"
+                label="Hospital Signage"
+                path="/public/images/hospital/health-line-signage.jpg"
+                aspect="aspect-square"
+              />
+            </div>
+            <div className="overflow-hidden rounded-sm border border-forest-700/10 shadow-card">
+              <ImageSlot
+                src="/images/hospital/health-line-clinical.jpg"
                 alt="Clinical procedure at Health Line Hospital"
                 label="Clinical Training Photo"
                 path="/public/images/hospital/health-line-clinical.jpg"
-                src={asset("/images/hospital/health-line-clinical.jpg")}
                 aspect="aspect-square"
               />
             </div>

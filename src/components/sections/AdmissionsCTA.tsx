@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/ui/Reveal";
+import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 
 export function AdmissionsCTA() {
@@ -25,14 +26,24 @@ export function AdmissionsCTA() {
             healthcare.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a href="#enquiry" className="btn-gold">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              href="#enquiry"
+              className="btn-gold"
+            >
               Apply Now
               <ArrowRight size={16} />
-            </a>
-            <a href="#contact" className="btn-secondary border-cream-100/30 text-cream-100 hover:border-cream-100 hover:bg-cream-100/10">
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              href="#contact"
+              className="btn-secondary border-cream-100/30 text-cream-100 hover:border-cream-100 hover:bg-cream-100/10"
+            >
               <Phone size={16} />
               Contact Us
-            </a>
+            </motion.a>
           </div>
         </Reveal>
       </div>
