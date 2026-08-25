@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { galleryCategories } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 type GalleryItem = {
   id: string;
@@ -72,6 +73,7 @@ export function Gallery() {
                     alt={item.label}
                     label={item.category}
                     path={`/public/images/gallery/${item.id}.jpg`}
+                    src={asset(`/images/gallery/${item.id}.jpg`)}
                     aspect="aspect-square"
                     className="transition-transform duration-500 group-hover:scale-105"
                   />
@@ -110,6 +112,7 @@ export function Gallery() {
                 alt={lightbox.label}
                 label={lightbox.category}
                 path={`/public/images/gallery/${lightbox.id}.jpg`}
+                src={asset(`/images/gallery/${lightbox.id}.jpg`)}
                 aspect="aspect-square"
               />
               <div className="p-4">

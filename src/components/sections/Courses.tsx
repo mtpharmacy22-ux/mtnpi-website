@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { courses } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Courses() {
   return (
@@ -27,6 +28,7 @@ export function Courses() {
                     alt={`${course.name} students in a lab session`}
                     label="Course Image"
                     path="/public/images/labs/bsc-nursing-course.jpg"
+                    src={asset("/images/labs/bsc-nursing-course.jpg")}
                     aspect="aspect-[4/3] md:aspect-auto md:h-full"
                   />
                 </div>
