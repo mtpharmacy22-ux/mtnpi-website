@@ -5,6 +5,7 @@ import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { Bus } from "lucide-react";
 import { transport } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Transport() {
   return (
@@ -44,6 +45,7 @@ export function Transport() {
             alt="College-owned bus for student transport"
             label="College Bus Photograph"
             path="/public/images/transport/college-bus.jpg"
+            src={asset("/images/transport/college-bus.jpg")}
             aspect="aspect-[4/3]"
           />
         </Reveal>

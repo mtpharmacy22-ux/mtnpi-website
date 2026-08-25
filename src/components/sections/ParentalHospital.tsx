@@ -5,6 +5,7 @@ import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { GraduationCap, Stethoscope, Briefcase, ArrowRight } from "lucide-react";
 import { parentalHospital } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 const journey = [
   { label: "Education", icon: GraduationCap },
@@ -56,6 +57,7 @@ export function ParentalHospital() {
                 alt="Health Line Hospital building, Adarsh Nagar, Jaipur"
                 label="Hospital Exterior Photo"
                 path="/public/images/hospital/health-line-exterior.jpg"
+                src={asset("/images/hospital/health-line-exterior.jpg")}
                 aspect="aspect-[16/9]"
               />
             </div>
@@ -64,6 +66,7 @@ export function ParentalHospital() {
                 alt="Health Line Hospital signage"
                 label="Hospital Signage"
                 path="/public/images/hospital/health-line-signage.jpg"
+                src={asset("/images/hospital/health-line-signage.jpg")}
                 aspect="aspect-square"
               />
             </div>
@@ -72,6 +75,7 @@ export function ParentalHospital() {
                 alt="Clinical procedure at Health Line Hospital"
                 label="Clinical Training Photo"
                 path="/public/images/hospital/health-line-clinical.jpg"
+                src={asset("/images/hospital/health-line-clinical.jpg")}
                 aspect="aspect-square"
               />
             </div>

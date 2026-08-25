@@ -5,6 +5,7 @@ import { ImageSlot } from "@/components/ui/ImageSlot";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import { library } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Library() {
   return (
@@ -15,6 +16,7 @@ export function Library() {
             alt="Students using the institute library"
             label="Library Photograph"
             path="/public/images/library/library-reading-area.jpg"
+            src={asset("/images/library/library-reading-area.jpg")}
             aspect="aspect-[4/3]"
           />
         </Reveal>
