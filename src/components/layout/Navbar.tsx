@@ -1,13 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -31,11 +39,22 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
+      {/* Scroll progress indicator */}
+      <motion.div
+        className="absolute inset-x-0 top-0 h-[2.5px] origin-left bg-gold-500"
+        style={{ scaleX: progress }}
+      />
+
       <div className="container-page flex h-16 items-center justify-between sm:h-20">
         <a href="#home" className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-700 font-display text-sm font-bold text-cream-100 sm:h-11 sm:w-11">
-            MT
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <motion.img
+            whileHover={{ rotate: -6, scale: 1.06 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            src={asset("/images/logo/mtnpi-logo.png")}
+            alt="Mother Teresa Nursing & Paramedical Institute logo"
+            className="h-10 w-10 object-contain sm:h-11 sm:w-11"
+          />
           <span className="font-display text-sm font-semibold leading-tight text-forest-800 sm:text-base">
             Mother Teresa
             <span className="block text-[11px] font-medium text-sage-600 sm:text-xs">
@@ -49,17 +68,23 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-forest-800/80 transition-colors hover:text-forest-700"
+              className="group relative text-sm font-medium text-forest-800/80 transition-colors hover:text-forest-700"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-gold-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
 
         <div className="hidden lg:block">
-          <a href="#admissions" className="btn-primary">
+          <motion.a
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            href="#admissions"
+            className="btn-primary"
+          >
             Apply Now
-          </a>
+          </motion.a>
         </div>
 
         <button
@@ -68,7 +93,18 @@ export function Navbar() {
           className="flex h-10 w-10 items-center justify-center text-forest-800 lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={open ? "close" : "menu"}
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              className="flex"
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </motion.span>
+          </AnimatePresence>
         </button>
       </div>
 

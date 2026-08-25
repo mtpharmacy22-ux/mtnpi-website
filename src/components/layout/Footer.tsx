@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { contact, navLinks, siteConfig } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Footer() {
   const quickLinks = navLinks.filter((l) =>
@@ -13,9 +14,12 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cream-100 font-display text-sm font-bold text-forest-800">
-              MT
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={asset("/images/logo/mtnpi-logo.png")}
+              alt="Mother Teresa Nursing & Paramedical Institute logo"
+              className="h-10 w-10 rounded-full bg-cream-100 object-contain p-0.5"
+            />
             <span className="font-display text-sm font-semibold leading-tight">
               Mother Teresa
               <span className="block text-xs font-medium text-cream-100/70">
