@@ -1,4 +1,5 @@
 import { ImageIcon } from "lucide-react";
+import { asset } from "@/lib/asset";
 
 /**
  * ImageSlot renders a real image when `src` is provided, and otherwise
@@ -26,7 +27,7 @@ export function ImageSlot({
 }) {
   if (src) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={`h-full w-full object-cover ${className}`} />;
+    return <img src={asset(src)} alt={alt} className={`h-full w-full object-cover ${className}`} />;
   }
 
   return (
