@@ -3,6 +3,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ArrowRight } from "lucide-react";
+import { asset } from "@/lib/asset";
 
 export function About() {
   return (
@@ -13,6 +14,7 @@ export function About() {
             alt="Students and faculty at Mother Teresa Nursing & Paramedical Institute"
             label="Campus / Classroom Photo"
             path="/public/images/campus/about-institute.jpg"
+            src={asset("/images/campus/about-institute.jpg")}
             aspect="aspect-[4/3]"
           />
         </Reveal>

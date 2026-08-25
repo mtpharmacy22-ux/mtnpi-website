@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { siteConfig } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function Hero() {
   return (
@@ -76,6 +77,7 @@ export function Hero() {
               alt="Mother Teresa Nursing & Paramedical Institute campus building"
               label="Institute Building Photo"
               path="/public/images/hero/institute-building.jpg"
+              src={asset("/images/hero/institute-building.jpg")}
               aspect="aspect-[4/5]"
             />
           </div>

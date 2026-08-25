@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { Quote } from "lucide-react";
 import { directorMessage } from "@/data/site-content";
+import { asset } from "@/lib/asset";
 
 export function DirectorMessage() {
   return (
@@ -14,6 +15,7 @@ export function DirectorMessage() {
             alt="Dr. I. B. Khan, Director, Mother Teresa Nursing & Paramedical Institute"
             label="Director Photograph"
             path="/public/images/director/dr-ib-khan.jpg"
+            src={asset("/images/director/dr-ib-khan.jpg")}
             aspect="aspect-[4/5]"
           />
         </Reveal>
